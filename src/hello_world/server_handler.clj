@@ -5,13 +5,9 @@
             [ring.util.response :refer [response content-type]]
             [rum.core :as rum]
             [selmer.parser :as parser]
-            [hello-world.state :as state]))
+            [hello-world.components.counter :refer [counter]]))
 
 (parser/set-resource-path! (clojure.java.io/resource "public"))
-
-(rum/defc counter < rum/reactive []
-  [:div { :on-click (fn [_] (swap! state/count inc)) }
-    "Clicks: " (rum/react state/count)])
 
 (defroutes app-routes
   (route/resources "/" {:root "public"})

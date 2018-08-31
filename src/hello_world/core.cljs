@@ -1,14 +1,10 @@
 (ns hello-world.core
     (:require [rum.core :as rum]
-              [hello-world.state :as state]))
+              [hello-world.components.counter :refer [counter]]))
 
 (enable-console-print!)
 
 (println "This text is printed from src/hello-world/core.cljs. Go ahead and edit it and see reloading in action.")
-
-(rum/defc counter < rum/reactive []
-  [:div { :on-click (fn [_] (swap! state/count inc)) }
-    "Clicks: " (rum/react state/count)])
 
 (rum/hydrate (counter) (. js/document (getElementById "app")))
 

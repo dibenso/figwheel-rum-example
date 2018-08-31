@@ -1,3 +1,3 @@
 (ns ^:figwheel-no-load hello-world.state)
 
-(def count (atom 0))
+(def *count (atom 0))
